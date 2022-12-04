@@ -10,7 +10,7 @@ dunst &
 ibus-daemon -drx &
 
 # battery notification
-$scripts/default/battery_notif &
+#$scripts/default/battery_notif &
 
 # screen locking when idle
 $scripts/default/idle_handler &

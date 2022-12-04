@@ -38,21 +38,21 @@ mpddir="$HOME/Music/iTunes Media"
 ########################## Title ##########################
 title() {
 title=$(playerctl --player=$Control metadata --format {{title}})
-[ -z "$title" ] && title="Play Something"
+[ -z "$title" ] && title=""
 echo "$title"
 }
 
 ########################## Artist ##########################
 artist() {
 artist=$(playerctl --player=$Control metadata --format {{artist}})
-[ -z "$artist" ] && artist="Artist"
+[ -z "$artist" ] && artist=""
 echo "$artist"
 }
 
 ########################## Album ##########################
 album() {
 album=$(playerctl --player=$Control metadata --format {{album}})
-[ -z "$album" ] && album="Album"
+[ -z "$album" ] && album=""
 echo "$album"
 }
 
@@ -157,21 +157,21 @@ printf "$lyrics" | less
 ########################## Title ##########################
 mpctitle() {
 title=$(mpc -f %title% current)
-[ -z "$title" ] && title="Play Something"
+[ -z "$title" ] && title=""
 echo "$title"
 }
 
 ########################## Artist ##########################
 mpcartist() {
 artist=$(mpc -f %artist% current)
-[ -z "$artist" ] && artist="Artist"
+[ -z "$artist" ] && artist=""
 echo "$artist"
 }
 
 ########################## Album ##########################
 mpcalbum() {
 album=$(mpc -f %album% current)
-[ -z "$album" ] && album="Album" 
+[ -z "$album" ] && album="" 
 echo "$album"
 }
 

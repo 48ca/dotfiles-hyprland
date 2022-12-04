@@ -78,9 +78,7 @@
     (box
       :orientation "h"
       :space-evenly "false"
-      (label :class "basic_text" :text song)
-      (sep)
-      (label :class "basic_text" :text song_artist))))
+      (label :class "basic_text" :text "${song} : ${song_artist}"))))
 
 (defwidget keyboard_layout []
   (eventbox
