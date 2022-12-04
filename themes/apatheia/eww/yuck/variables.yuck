@@ -8,5 +8,8 @@
 (defpoll playpause	:interval "1s"  "scripts/music statusicon")
 (defpoll player_volume	:interval "5s"  'bc <<< "$(playerctl volume)*100"')
 ; (defpoll song_time      :interval "1s"  "scripts/music timeS")
+(defpoll cpu_perc      :interval "1s"  "scripts/cpu")
+(defpoll fs      :interval "1s"  "scripts/fs")
+(defpoll kbd_layout      :interval "1s"  "ibus engine")
 
 (defvar music_reveal false)

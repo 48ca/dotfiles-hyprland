@@ -43,14 +43,19 @@ tooltip label {
 
 /** Widgets **/
 
+.basic_text {
+    font-size: 16;
+    margin: 2px 0px 0px 0px;
+}
 .clock_time_class,
 .clock_minute_class {
     font-size: 28;
 }
 
 .clock_date_class {
-    font-size: 24;
-    margin: 0px 20px -4px -1px;
+    font-size: 22;
+    /*margin: 0px 20px -4px -1px;*/
+    margin: 2px 0px 0px 0px;
     color: $white;
 }
 

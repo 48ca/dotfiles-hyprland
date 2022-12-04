@@ -52,7 +52,7 @@
     :space-evenly "false"
     :spacing "15"
     :vexpand "true"
-    (top)
+    ; (top)
     (music-side)
     (sys-tray)
     ; (clipboard)

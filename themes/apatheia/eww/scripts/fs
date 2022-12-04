@@ -1,0 +1,6 @@
+#!/bin/bash
+
+get_fs() {
+    df -h / --output=pcent | tail -n1
+}
+get_fs

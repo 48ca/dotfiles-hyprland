@@ -9,7 +9,7 @@
 
 ;; Variables
 (defpoll clock_time :interval "5s" "date '+\%H\%M'")
-(defpoll clock_date :interval "1h" "date '+%b %d, %Y'")
+(defpoll clock_date :interval "1h" "date '+%m月%d日'")
 (defpoll calendar_day :interval "2h" "date '+%d'")
 (defpoll calendar_year :interval "2h" "date '+%Y'")
 (defpoll volume_percent :interval "1s"  "scripts/sbvol --get")
@@ -51,6 +51,43 @@
   (literal
     :content workspace
   :valign "center"))
+
+(defwidget cpu []
+  (eventbox
+    (box
+      :orientation "h"
+      :space-evenly "false"
+      (label :class "basic_text" :text "CPU: ${cpu_perc}%"))))
+
+(defwidget fs []
+  (eventbox
+    (box
+      :orientation "h"
+      :space-evenly "false"
+      (label :class "basic_text" :text "FS:${fs}"))))
+
+(defwidget mem_text []
+  (eventbox
+    (box
+      :orientation "h"
+      :space-evenly "false"
+      (label :class "basic_text" :text "MEM: ${round((EWW_RAM.used_mem/(1024*1024*1024)), 2)}G"))))
+
+(defwidget music_horiz []
+  (eventbox
+    (box
+      :orientation "h"
+      :space-evenly "false"
+      (label :class "basic_text" :text song)
+      (sep)
+      (label :class "basic_text" :text song_artist))))
+
+(defwidget keyboard_layout []
+  (eventbox
+    (box
+      :orientation "h"
+      :space-evenly "false"
+      (label :class "basic_text" :text kbd_layout))))
 
 (defwidget appnames []
   (eventbox
@@ -196,15 +233,13 @@
       :space-evenly "false"
       :orientation "h"
       :spacing "0"
+      (button
+        :class "clock_date_class"
+        :onclick "scripts/pop calendar" clock_date)
+      (sep)
       (label
         :text clock_time
-      :class "clock_time_class" )
-      (revealer :transition "slideleft"
-        :reveal time_rev
-        :duration "350ms"
-        (button
-          :class "clock_date_class"
-        :onclick "scripts/pop calendar" clock_date)))))
+      :class "clock_time_class" ))))
 
 (defwidget notif_button []
   (box
@@ -245,7 +280,9 @@
     :class "left_modules"
     (launcher)
     (sep)
-    (workspaces)))
+    (workspaces)
+    (sep)
+    (music_horiz)))
 (defwidget center []
   (box
     :orientation "h"
@@ -263,11 +300,19 @@
     (volume)
     (wifi)
     (sep)
-    (bat)
-    (mem)
+    ;;(bat)
+    ;;(mem)
+    ;;(sep)
+    (cpu)
     (sep)
+    (mem_text)
+    (sep)
+    (fs)
+    (sep)
+    ;(keyboard_layout)
+    ;(sep)
     (clock_module)
-    ; (notif_button)
+    ;(notif_button)
   ))
 
 (defwidget bar_layout []

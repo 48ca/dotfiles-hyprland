@@ -26,8 +26,8 @@
       (box
         :class "album_art"
         :style "background-image: url('${cover_art}');")
-      (label :halign "start" :class "song" :wrap "false" :limit-width 12 :text song)
-      (label :halign "start" :class "song_artist" :wrap "true" :limit-width 15 :text song_artist)
+      (label :halign "start" :class "song" :wrap "false" :limit-width 20 :text song)
+      (label :halign "start" :class "song_artist" :wrap "true" :limit-width 20 :text song_artist)
     )))
     
     (defwidget music_ctl []
