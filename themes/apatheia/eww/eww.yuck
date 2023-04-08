@@ -9,7 +9,7 @@
 
 ;; Variables
 (defpoll clock_time :interval "5s" "date '+\%H\%M'")
-(defpoll clock_date :interval "1h" "date '+%m月%d日'")
+(defpoll clock_date :interval "10s" "date '+%m月%d日'")
 (defpoll calendar_day :interval "2h" "date '+%d'")
 (defpoll calendar_year :interval "2h" "date '+%Y'")
 (defpoll volume_percent :interval "1s"  "scripts/sbvol --get")
@@ -198,7 +198,7 @@
     (circular-progress
       :value {EWW_BATTERY["BAT0"].capacity}
       :class "batbar"
-      :thickness 4
+      :thickness 2
       (button
         :onclick "scripts/pop system"
         :class "iconbat"
@@ -213,7 +213,7 @@
     (circular-progress
       :value {EWW_RAM.used_mem_perc}
       :class "membar"
-      :thickness 4
+      :thickness 2
       (button
         :onclick "scripts/pop system"
         :class "iconmem"
@@ -286,8 +286,8 @@
     :orientation "h"
     :space-evenly false
     :halign "center"
-    :class "center_modules"
-    (appnames)))
+    :class "center_modules"))
+    ;; (appnames)))
 (defwidget right []
   (box
     :orientation "h"
@@ -297,10 +297,9 @@
     (bright)
     (volume)
     (wifi)
-    (sep)
-    ;;(bat)
+    (bat)
     ;;(mem)
-    ;;(sep)
+    (sep)
     (cpu)
     (sep)
     (mem_text)
